@@ -1,0 +1,47 @@
+<aura:component description="contactsTable" controller="ContactRepository">
+
+    <aura:attribute name="allContacts" type="Contact[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler event="c:refreshTableEvent" action="{!c.handleComponentEvent}"/>
+
+
+    <table class="slds-table slds-table--bordered slds-table--cell-buffer" role="grid">
+        <thead>
+        <tr class="slds-text-title--caps slds-text-title_bold">
+            <th class="" scope="col">
+                <div class="slds-truncate" title=" Name"> Name</div>
+            </th>
+            <th class="" scope="col">
+                <div class="slds-truncate" title="Title">Title</div>
+            </th>
+
+            <th class="" scope="col">
+                <div class="slds-truncate" title="Phone">Phone</div>
+            </th>
+            <th class="" scope="col">
+                <div class="slds-truncate" title="Email">Email</div>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <aura:iteration items="{!v.allContacts}" var="contact">
+            <tr class="slds-hint-parent">
+                <th scope="row">
+                    <div class="slds-truncate" title="Cloudhub">{!contact.FirstName +' '+contact.LastName}</div>
+                </th>
+                <th scope="row">
+                    <div class="slds-truncate" title="Title">{!contact.Title}</div>
+                </th>
+                <th scope="row">
+                    <div class="slds-truncate" title="Phone">{!contact.Phone}</div>
+                </th>
+                <th scope="row">
+                    <div class="slds-truncate" title="jrogers@cloudhub.com">
+                        {!contact.Email}
+                    </div>
+                </th>
+            </tr>
+        </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>

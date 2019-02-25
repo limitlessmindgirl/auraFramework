@@ -1,0 +1,32 @@
+<aura:component description="createContact" controller="ContactRepository">
+
+    <aura:attribute name="newContact" type="Contact" default="{
+    'sObjectType':'Contact',
+    'FirstName':'',
+    'LastName':'',
+    'Phone':'',
+    'Email':''
+    }"/>
+
+    <aura:registerEvent name="cmpEvent" type="c:refreshTableEvent"/>
+
+    <h2 class="slds-m-around_medium">Create New Contact</h2>
+    <div class="slds-box slds-form-element">
+
+        <div title="FirstName">
+            <ui:inputText value="{!v.newContact.FirstName}" label="First Name" required="true" class="slds-input"/>
+        </div>
+
+        <div title="LastName">
+            <ui:inputText value="{!v.newContact.LastName}" label="Last name" required="true" class="slds-input"/>
+        </div>
+        <div title="Phone">
+            <ui:inputPhone label="Phone" value="{!v.newContact.Phone}" class="slds-input"/>
+        </div>
+
+        <div title="jrogers@cloudhub.com">
+            <ui:inputEmail value="{!v.newContact.Email}" label="Email" class="slds-input"/>
+        </div>
+        <ui:button label="Save Contact" press="{!c.saveContact}" class="slds-m-around_medium"/>
+    </div>
+</aura:component>

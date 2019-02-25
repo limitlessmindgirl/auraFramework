@@ -1,0 +1,11 @@
+<aura:component description="contactContainer" implements="force:appHostable">
+    <div class="slds-box slds-color__background_gray-1">
+
+        <div class="slds-m-around_medium">
+            <c:createContact/>
+        </div>
+        <div class="slds-m-around_medium">
+            <c:contactsTable/>
+        </div>
+    </div>
+</aura:component>
